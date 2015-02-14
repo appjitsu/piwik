@@ -37,7 +37,8 @@ Meteor.Piwik.trackEvent(
 		name: "Name of the Event - Submitted Contact Form",
 		value: "Optional Value - like how many rows saved, etc."
 	},
-	{// any number of extra optional values. pass and empty hash if you dont want to pass optional values
+	{// any number of extra optional values.
+	 // pass and empty hash if you dont want to pass optional values
 		"1": ["Name", "Value", "page|visit"],
 		"2": ["Name", "Value", "page|visit"],
 		"3": ["Name", "Value", "page|visit"],
