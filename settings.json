@@ -1,0 +1,6 @@
+{
+	"piwik": {
+		"url": "URL_TO_PIWIK",
+		"site_id": 0
+	}
+}
