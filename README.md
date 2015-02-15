@@ -49,7 +49,7 @@ Meteor.Piwik.trackEvent(
 );
 ```
 
-###### Additional Piwik Documentation:
+#### Additional Piwik Documentation:
 
 For trackEvent and trackPageView: 
 http://developer.piwik.org/api-reference/tracking-javascript
