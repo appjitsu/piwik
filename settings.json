@@ -1,6 +1,6 @@
 {
 	"piwik": {
-		"url": "URL_TO_PIWIK",
+		"url": "http://your_piwik_server_url/piwik.php",
 		"site_id": 0
 	}
 }
