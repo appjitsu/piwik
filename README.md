@@ -23,8 +23,8 @@ In your settings.json file, add:
 #### Usage
 
 ```
-// to track page in your router
-Meteor.Piwik.trackPage(Router.current().route.path(this)); 
+// to track page in your router (onRun hook)
+Meteor.Piwik.trackPage(Router.current().route.path(this));
 ```
 
 ```
@@ -51,7 +51,7 @@ Meteor.Piwik.trackEvent(
 
 #### Additional Piwik Documentation:
 
-For trackEvent and trackPageView: 
+For trackEvent and trackPageView:
 http://developer.piwik.org/api-reference/tracking-javascript
 http://developer.piwik.org/api-reference/tracking-api
 
@@ -59,5 +59,5 @@ http://developer.piwik.org/api-reference/tracking-api
 	- trackPageView([customTitle]) - Logs a visit to this page
 
 
-For custom event variables: 
+For custom event variables:
 http://piwik.org/blog/2012/10/using-custom-variables-in-piwik-tutorial
