@@ -1,8 +1,8 @@
 var PiwikTracker = Npm.require('piwik-tracker');
-if(typeof(Meteor.Settings.piwik) != 'undefined'){
-	var piwik = new PiwikTracker(Meteor.Settings.piwik.site_id, Meteor.Settings.piwik.url);	
-}else{
-	console.log("Pikik settings missing. Add settings to your settings.json file");
+if (typeof(Meteor.settings.piwik) != 'undefined') {
+  var piwik = new PiwikTracker(Meteor.settings.piwik.site_id, Meteor.settings.piwik.url);
+} else {
+  console.log("Pikik settings missing. Add settings to your settings.json file.");
 }
 
 Meteor.methods({
