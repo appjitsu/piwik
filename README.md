@@ -16,7 +16,8 @@ In your settings.json file, add:
 ```
 "piwik": {
     "url": "http://your_piwik_server_url/piwik.php",
-    "site_id": 0
+    "site_id": 0,
+    "token": <YOUR SECRET PIWIK TOKEN>
 }
 ```
 

@@ -6,19 +6,44 @@ if (typeof(Meteor.settings.piwik) != 'undefined') {
 }
 
 Meteor.methods({
-  trackPage: function (url, uid) {
+  trackPage: function (url, uid, ua, res) {
+    check(url,  String);
+    check(ua,  String);
+    check(res,  String);
+    check(uid, Match.OneOf(String,null));
     if (!url) throw new Meteor.Error("Invalid Arguments");
     var trackingVars = {
-      url: url
+      url: url,
+      ua: ua,
+      res: res,
+      token_auth: Meteor.settings.piwik.token,
+      cip: this.connection.clientAddress
     };
     if (typeof uid != 'undefined') trackingVars.uid = uid;
     piwik.track(trackingVars);
   },
-  trackEvent: function (url, event, options, uid) {
+  trackEvent: function (url, ua, res, event, options, uid) {
+    check(url, String);
+    check(ua,  String);
+    check(res,  String);
+    check(event, {
+        category: String,
+        action: String,
+        name: String,
+        value: String,
+        cvar: Object
+    });
+    check(options, Object);
+    check(uid, Match.OneOf(String,null));
+
     if (!url || !event) throw new Meteor.Error("Invalid Arguments");
     console.log('options', options);
     var trackingVars = {
       url: url,
+      ua: ua,
+      res: res,
+      token_auth: Meteor.settings.piwik.token,
+      cip: this.connection.clientAddress,
       e_c: event.category,
       e_a: event.action,
       e_n: event.name,

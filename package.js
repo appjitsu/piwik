@@ -3,7 +3,7 @@ Package.describe({
   // Short two-sentence summary.
   summary: "Piwik tracking for Meteor.",
   // Version number.
-  version: "0.0.4",
+  version: "0.0.5",
   // Optional.  Default is package directory name.
   name: "appjitsu:piwik",
   documentation: 'README.md',
