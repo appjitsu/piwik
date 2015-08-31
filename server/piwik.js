@@ -26,8 +26,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     },
@@ -53,8 +55,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     },
@@ -80,8 +84,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     },
@@ -114,8 +120,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     },
@@ -141,8 +149,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     },
@@ -180,8 +190,10 @@ Meteor.methods({
             trackingVars.ua = userInfo.ua;
             trackingVars.urlref = userInfo.urlref;
         }
-        trackingVars = _.pick(trackingVars, function(value) {
-            return !_.isNull(value);
+        Object.keys(trackingVars).forEach(function(k) {
+            if (!trackingVars[k]) {
+                delete trackingVars[k];
+            }
         });
         piwik.track(trackingVars);
     }

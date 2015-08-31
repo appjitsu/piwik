@@ -3,7 +3,7 @@ Package.describe({
     // Short two-sentence summary.
     summary: "Piwik tracking for Meteor.",
     // Version number.
-    version: "0.1.0",
+    version: "0.1.1",
     // Optional.  Default is package directory name.
     name: "davidsichau:piwik",
     documentation: 'README.md',
@@ -15,9 +15,6 @@ Package.describe({
 Package.onUse(function (api) {
     api.versionsFrom('1.1.0.2');
     var both = ["client", "server"];
-    api.use([
-        'meteor-platform@1.2.2'
-    ], both);
 
     api.addFiles(['client/piwik.js'], ['client']);
     api.addFiles(['server/piwik.js'], ['server']);
