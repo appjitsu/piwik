@@ -17,9 +17,11 @@ Meteor.methods({
         if (!url) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
             url: url,
-            token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress
+            token_auth: Meteor.settings.piwik.token
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
@@ -46,9 +48,11 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             download: download,
-            token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress
+            token_auth: Meteor.settings.piwik.token
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
@@ -75,9 +79,11 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             link: link,
-            token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress
+            token_auth: Meteor.settings.piwik.token
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
@@ -111,9 +117,11 @@ Meteor.methods({
             search: search.search,
             search_cat: search.search_cat,
             search_count: search.search_count,
-            token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress
+            token_auth: Meteor.settings.piwik.token
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
@@ -140,9 +148,11 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             goalId: goalId,
-            token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress
+            token_auth: Meteor.settings.piwik.token
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
@@ -177,13 +187,15 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             token_auth: Meteor.settings.piwik.token,
-            cip: this.connection.clientAddress,
             e_c: event.category,
             e_a: event.action,
             e_n: event.name,
             e_v: event.value,
             cvar: JSON.stringify(options)
         };
+        if(this.connection && this.connection.clientAddress) {
+            trackingVars.cip = this.connection.clientAddress;
+        }
         if(_.isObject(userInfo)) {
             trackingVars.uid = userInfo.uid;
             trackingVars.res = userInfo.res;
