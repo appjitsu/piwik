@@ -178,10 +178,9 @@ Meteor.methods({
             category: String,
             action: String,
             name: String,
-            value: String,
-            cvar: Object
+            value: Number
         });
-        check(options, Object);
+        check(options, Match.OneOf(null,Object));
 
         if (!url || !event) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
@@ -190,9 +189,11 @@ Meteor.methods({
             e_c: event.category,
             e_a: event.action,
             e_n: event.name,
-            e_v: event.value,
-            cvar: JSON.stringify(options)
+            e_v: event.value
         };
+        if(_.isObject(options)){
+            trackingVars.cvar = JSON.stringify(options);
+        }
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
         }
