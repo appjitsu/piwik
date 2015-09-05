@@ -3,7 +3,7 @@ Package.describe({
   // Short two-sentence summary.
   summary: "Piwik tracking for Meteor.",
   // Version number.
-  version: "0.0.4",
+  version: "0.0.5",
   // Optional.  Default is package directory name.
   name: "appjitsu:piwik",
   documentation: 'README.md',
@@ -22,5 +22,5 @@ Package.onUse(function (api) {
 
 /* This lets you use npm packages in your package*/
 Npm.depends({
-  "piwik-tracker": "0.1.1" 
+  "piwik-tracker": "0.1.2" 
 });
