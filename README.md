@@ -13,14 +13,12 @@ meteor add davidsichau:piwik
 
 #### Setup
 
-In your settings.json file, add:
-
+Add the following Environmentsvariables
 ```
-"piwik": {
-    "url": "http://your_piwik_server_url/piwik.php",
-    "site_id": 0,
-    "token": <YOUR SECRET PIWIK TOKEN>
-}
+PIWIK_SITE_ID = `http://your_piwik_server_url/piwik.php"`
+PIWIK_URL = `0`
+PIWIK_TOKEN = `<YOUR SECRET PIWIK TOKEN>`
+
 ```
 
 #### Usage

@@ -1,6 +1,13 @@
 var PiwikTracker = Npm.require('piwik-tracker');
-if (typeof(Meteor.settings.piwik) != 'undefined') {
-    var piwik = new PiwikTracker(Meteor.settings.piwik.site_id, Meteor.settings.piwik.url);
+
+var site_id = process.env.PIWIK_SITE_ID;
+var piwik_url = process.env.PIWIK_URL;
+
+
+
+
+if (typeof(site_id) != 'undefined') {
+    var piwik = new PiwikTracker(site_id, piwik_url);
 } else {
     console.log("Piwik settings missing. Add settings to your settings.json file.");
 }
@@ -17,7 +24,7 @@ Meteor.methods({
         if (!url) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
             url: url,
-            token_auth: Meteor.settings.piwik.token
+            token_auth: process.env.PIWIK_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -48,7 +55,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             download: download,
-            token_auth: Meteor.settings.piwik.token
+            token_auth:  process.env.PIWIK_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -79,7 +86,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             link: link,
-            token_auth: Meteor.settings.piwik.token
+            token_auth: process.env.PIWIK_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -117,7 +124,7 @@ Meteor.methods({
             search: search.search,
             search_cat: search.search_cat,
             search_count: search.search_count,
-            token_auth: Meteor.settings.piwik.token
+            token_auth:  process.env.PIWIK_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -148,7 +155,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             goalId: goalId,
-            token_auth: Meteor.settings.piwik.token
+            token_auth: process.env.PIWIK_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -185,7 +192,7 @@ Meteor.methods({
         if (!url || !event) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
             url: url,
-            token_auth: Meteor.settings.piwik.token,
+            token_auth: process.env.PIWIK_TOKEN,
             e_c: event.category,
             e_a: event.action,
             e_n: event.name,
