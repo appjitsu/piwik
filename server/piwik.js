@@ -4,10 +4,12 @@ var site_id = process.env.PIWIK_SITE_ID;
 var piwik_url = process.env.PIWIK_URL;
 
 
-
-
+//stup for development settings
+var piwik = {
+    track: function (val){return true;}
+};
 if (typeof(site_id) != 'undefined') {
-    var piwik = new PiwikTracker(site_id, piwik_url);
+    piwik = new PiwikTracker(site_id, piwik_url);
 } else {
     console.log("Piwik settings missing. Add settings to your settings.json file.");
 }
